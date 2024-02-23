@@ -4,20 +4,19 @@ FROM python:3.10-slim
 # Allow statements and log messages to immediately appear in the logs
 ENV PYTHONUNBUFFERED True
 
-# Expose port 8080 for the application
-EXPOSE 8080
-
-# Set the working directory in the container
-ENV APP_HOME /app
-WORKDIR $APP_HOME
-
-# Copy the current directory contents into the container at /app
-COPY . ./
-
-# Install any needed packages specified in requirements.txt
+# Copy the requirements.txt file and install the Python dependencies
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy the entire current directory into the container at /app
+COPY . /app
+
+VOLUME /app/
+
+# Expose the port that your Streamlit app is listening on
+EXPOSE 8501
+
 # Command to run the Streamlit application
-CMD streamlit run --server.port 8080 --server.enableCORS false aiagent.py
+CMD streamlit run --server.port 8501 --server.enableCORS false app.py
 
 
