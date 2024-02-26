@@ -1,4 +1,5 @@
 version: '3.9'
+x-application-name: ai-agent-app
 services:
   app:
     build:
