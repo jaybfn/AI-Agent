@@ -1,5 +1,5 @@
 version: '3.9'
-x-application-name: ai-agent-app
+x-application-name: ai-agent-app-v1
 services:
   app:
     build:

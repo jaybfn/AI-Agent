@@ -22,7 +22,7 @@ COPY . /app
 EXPOSE 8081
 
 # Command to run the Streamlit application
-CMD ["streamlit", "run", "app.py", "--server.port", "8081"]
+CMD ["streamlit", "run", "streamlitapp.py", "--server.port", "8081"]
 
 # Use a different stage for the final image
 FROM python:3.10.8-slim
@@ -39,4 +39,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8081
 
 # Command to run the Streamlit application
-CMD ["streamlit", "run", "app.py", "--server.port", "8081"]
+CMD ["streamlit", "run", "streamlitapp.py", "--server.port", "8081"]
